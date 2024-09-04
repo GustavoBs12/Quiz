@@ -1,23 +1,68 @@
 const questions = [
     {
-        question: "Qual é a capital da França?",
+        question: "Qual é a função do elemento <header> em HTML?",
         answers: [
-            { text: "Paris", correct: true },
-            { text: "Londres", correct: false },
-            { text: "Berlim", correct: false },
-            { text: "Madrid", correct: false }
+            { text: "Define o rodapé da página", correct: false },
+            { text: "Inclui links de navegação", correct: false },
+            { text: "Define o cabeçalho da página ou de uma seção", correct: true },
+            { text: "Adiciona scripts de JavaScript", correct: false }
         ]
     },
     {
-        question: "Qual é o maior planeta do Sistema Solar?",
+        question: "Qual das seguintes propriedades CSS é usada para alterar a cor do fundo de um elemento?",
         answers: [
-            { text: "Júpiter", correct: true },
-            { text: "Saturno", correct: false },
-            { text: "Marte", correct: false },
-            { text: "Terra", correct: false }
+            { text: "color", correct: false },
+            { text: "background-color", correct: true },
+            { text: "font-color", correct: false },
+            { text: "border-color", correct: false }
         ]
-    }
-    // Adicione mais perguntas aqui
+    },
+    {question: "O que o método addEventListener() faz em JavaScript?",
+        answers: [
+            { text: "Adiciona uma classe a um elemento", correct: false },
+            { text: "Adiciona um ouvinte de eventos a um elemento", correct: true },
+            { text: "Adiciona um atributo a um elemento", correct: false },
+            { text: "Adiciona um novo elemento ao DOM", correct: false }
+        ]
+    },
+        
+       { question: "Qual das seguintes linguagens é usada principalmente para estilizar páginas web?",
+        answers: [
+            { text: "HTML", correct: false },
+            { text: "JavaScript", correct: false },
+            { text: "CSS", correct: true},
+            { text: "Python", correct: false }
+        ]
+    },
+
+        {question: "Em qual tag HTML você coloca o código JavaScript?",
+        answers: [
+            { text: "<style>", correct: false },
+            { text: "<body>", correct: false},
+            { text: "head>", correct: false },
+            { text: "<script>", correct: true }
+        ]
+    },
+         {question: "Qual unidade de medida CSS é relativa ao tamanho da fonte do elemento pai? ",
+        answers: [
+            {text: "px", correct: false},
+            {text: "em", correct: true},
+            {text: "rem" , correct: false},
+            {text: "%", correct: false}
+        ]
+        
+     },
+     {question: "Qual método JavaScript é usado para selecionar um elemento HTML pelo seu ID?",
+        answers: [
+            {text: "getElementByTagName()" , correct: false},
+            {text: "getElementByClassName()" , correct: false},
+            {text: "getElementById()" , correct: true},
+            {text: "querySelector()" , correct: false}
+        ]
+
+     }
+
+    
 ];
 
 const questionElement = document.getElementById('question');
