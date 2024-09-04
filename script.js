@@ -1,6 +1,6 @@
 const questions = [
     {
-        question: "Qual é a função do elemento <header> em HTML?",
+        question: "Qual é a função do elemento header em HTML?",
         answers: [
             { text: "Define o rodapé da página", correct: false },
             { text: "Inclui links de navegação", correct: false },
