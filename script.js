@@ -37,10 +37,10 @@ const questions = [
 
         {question: "Em qual tag HTML você coloca o código JavaScript?",
         answers: [
-            { text: "<style>", correct: false },
-            { text: "<body>", correct: false},
-            { text: "head>", correct: false },
-            { text: "<script>", correct: true }
+            { text: "style", correct: false },
+            { text: "body", correct: false},
+            { text: "head", correct: false },
+            { text: "script", correct: true }
         ]
     },
          {question: "Qual unidade de medida CSS é relativa ao tamanho da fonte do elemento pai? ",
@@ -111,7 +111,7 @@ function selectAnswer(e) {
     }
     Array.from(answerButtonsElement.children).forEach(button => {
         if (button.dataset.correct) {
-            button.style.backgroundColor = 'green';
+            button.style.backgroundColor = 'blue';
         }
         button.disabled = true;
     });
@@ -119,11 +119,15 @@ function selectAnswer(e) {
 }
 
 nextButton.addEventListener('click', () => {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-        showQuestion();
+    if (nextButton.innerHTML === 'Reiniciar') {
+        startQuiz();
     } else {
-        showScore();
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            showQuestion();
+        } else {
+            showScore();
+        }
     }
 });
 
@@ -132,7 +136,6 @@ function showScore() {
     questionElement.innerHTML = `Você completou o quiz!`;
     nextButton.innerHTML = 'Reiniciar';
     nextButton.style.display = 'block';
-    nextButton.addEventListener('click', startQuiz);
 }
 
 startQuiz();
