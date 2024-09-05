@@ -17,7 +17,8 @@ const questions = [
             { text: "border-color", correct: false }
         ]
     },
-    {question: "O que o método addEventListener() faz em JavaScript?",
+    {
+        question: "O que o método addEventListener() faz em JavaScript?",
         answers: [
             { text: "Adiciona uma classe a um elemento", correct: false },
             { text: "Adiciona um ouvinte de eventos a um elemento", correct: true },
@@ -25,44 +26,42 @@ const questions = [
             { text: "Adiciona um novo elemento ao DOM", correct: false }
         ]
     },
-        
-       { question: "Qual das seguintes linguagens é usada principalmente para estilizar páginas web?",
+    {
+        question: "Qual das seguintes linguagens é usada principalmente para estilizar páginas web?",
         answers: [
             { text: "HTML", correct: false },
             { text: "JavaScript", correct: false },
-            { text: "CSS", correct: true},
+            { text: "CSS", correct: true },
             { text: "Python", correct: false }
         ]
     },
-
-        {question: "Em qual tag HTML você coloca o código JavaScript?",
+    {
+        question: "Em qual tag HTML você coloca o código JavaScript?",
         answers: [
             { text: "style", correct: false },
-            { text: "body", correct: false},
+            { text: "body", correct: false },
             { text: "head", correct: false },
             { text: "script", correct: true }
         ]
     },
-         {question: "Qual unidade de medida CSS é relativa ao tamanho da fonte do elemento pai? ",
+    {
+        question: "Qual unidade de medida CSS é relativa ao tamanho da fonte do elemento pai?",
         answers: [
-            {text: "px", correct: false},
-            {text: "em", correct: true},
-            {text: "rem" , correct: false},
-            {text: "%", correct: false}
+            { text: "px", correct: false },
+            { text: "em", correct: true },
+            { text: "rem", correct: false },
+            { text: "%", correct: false }
         ]
-        
-     },
-     {question: "Qual método JavaScript é usado para selecionar um elemento HTML pelo seu ID?",
+    },
+    {
+        question: "Qual método JavaScript é usado para selecionar um elemento HTML pelo seu ID?",
         answers: [
-            {text: "getElementByTagName()" , correct: false},
-            {text: "getElementByClassName()" , correct: false},
-            {text: "getElementById()" , correct: true},
-            {text: "querySelector()" , correct: false}
+            { text: "getElementByTagName()", correct: false },
+            { text: "getElementByClassName()", correct: false },
+            { text: "getElementById()", correct: true },
+            { text: "querySelector()", correct: false }
         ]
-
-     }
-
-    
+    }
 ];
 
 const questionElement = document.getElementById('question');
@@ -70,9 +69,13 @@ const answerButtonsElement = document.getElementById('answer-buttons');
 const nextButton = document.getElementById('next-button');
 
 let currentQuestionIndex = 0;
+let correctAnswers = 0;
+let incorrectAnswers = 0;
 
 function startQuiz() {
     currentQuestionIndex = 0;
+    correctAnswers = 0;
+    incorrectAnswers = 0;
     nextButton.innerHTML = "Próxima";
     showQuestion();
 }
@@ -106,8 +109,10 @@ function selectAnswer(e) {
     const isCorrect = selectedButton.dataset.correct === 'true';
     if (isCorrect) {
         selectedButton.style.backgroundColor = 'green';
+        correctAnswers++;
     } else {
-        selectedButton.style.backgroundColor = 'red';
+        selectedButton.style.backgroundColor = '#ff6961';
+        incorrectAnswers++;
     }
     Array.from(answerButtonsElement.children).forEach(button => {
         if (button.dataset.correct) {
@@ -133,7 +138,7 @@ nextButton.addEventListener('click', () => {
 
 function showScore() {
     resetState();
-    questionElement.innerHTML = `Você completou o quiz!`;
+    questionElement.innerHTML = `Você completou o quiz!<br>Respostas corretas: ${correctAnswers}<br>Respostas incorretas: ${incorrectAnswers}`;
     nextButton.innerHTML = 'Reiniciar';
     nextButton.style.display = 'block';
 }
